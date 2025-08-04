@@ -78,4 +78,4 @@ The analysis aims to answer four key business questions:
 
 ## 📬 Contact
 
-Feel free to connect or reach out on [LinkedIn](https://www.linkedin.com/) if you're interested in discussing the case or data-driven retail strategy.
+Feel free to connect or reach out on [LinkedIn](www.linkedin.com/in/nagy-boldizsar0518) if you're interested in discussing the case or data-driven retail strategy.
