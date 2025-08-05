@@ -70,9 +70,9 @@ The project includes:
 ## 📂 File Structure
 
 ```
-├── IFUA_elemzes.ipynb       # Jupyter Notebook with full analysis
+├── Analysis.ipynb       # Jupyter Notebook with full analysis
 ├── Cseh hírlappiac adattábla.xlsx  # Provided Excel file
-├── IFUA_masodik_fordulo.pptx       # Final business presentation
+├── Presentation.pptx       # Final business presentation
 └── README.md                # This file
 ```
 
