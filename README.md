@@ -81,7 +81,7 @@ The project includes:
 ## ✅ Key Results
 
 - Clear underperformance identified in ~10% of stores
-- Regression R² = ~0.82 using selected store features
+- Regression R² = ~0.72 using selected store features
 - Strong predictors of profit: store size, weekly opening hours, location
 - Product categories with cross-selling potential: [example if available]
 - Several store-specific and company-wide actions proposed
