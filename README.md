@@ -1,81 +1,96 @@
-# Czech Newspaper Retail Market – Strategic Case Study
+# Czech Retail Data Science Case Study
 
-This project is based on a second-round interview case study. It analyzes the strategic and operational challenges faced by a fictional newspaper retail company operating in the Czech Republic.
-
-## 📊 Objective
-
-The analysis aims to answer four key business questions:
-
-1. **Estimate the potential of each store**  
-   Identify which store-level factors most influence profitability, and suggest additional metrics the company could track.
-
-2. **Decide on underperforming stores**  
-   Based on data, determine if there are stores that should be closed or show significant room for improvement.
-
-3. **Cross-selling potential**  
-   Analyze how key product categories interact and identify where cross-selling opportunities exist.
-
-4. **Profit mass growth strategies**  
-   Suggest actions that could increase overall profit, based on sales, GM (gross margin), and product-level trends.
+This project was created as part of a second-round interview task.  
+The data used is **not real** and serves **only educational and portfolio purposes**.
 
 ---
 
-## 🧠 Approach
+## 📌 Business Objective
 
-- Cleaned and validated three data tables:
-  - `Forgalom` (Sales & GM by category and time)
-  - `Bolttörzs` (Store-level attributes)
-  - `Költségek` (Store-level cost data)
-
-- Aggregated data at store-year level and store average level
-
-- Built correlation matrices to find key profitability drivers
-
-- Trained multiple linear regression models to estimate **potential profit** for each store
-
-- Labeled stores by **utilization**: actual profit vs. predicted potential
-
-- Explored product category interactions (correlation & visualization)
-
-- Proposed profit growth strategies using:
-  - Seasonal trends
-  - Product category contributions
-  - Cross-selling patterns
+The case focuses on analyzing the potential of different retail stores in the Czech Republic based on their financial and operational performance. It includes estimating profitability, identifying underperforming stores, exploring cross-selling opportunities, and proposing actions to increase profit mass.
 
 ---
 
-## 📂 Files
+## 📊 Dataset Overview
 
-- `Cseh hírlappiac adattábla.xlsx`: Source dataset
-- `Stratégiai dilemmák a cseh hírlappiacon.docx`: Business context and case instructions
-- `IFUA_elemzes.ipynb`: Jupyter Notebook with full analysis pipeline (data cleaning → modeling → visualization)
-- `README.md`: You are here
-
----
-
-## 📝 Disclaimer
-
-> ⚠️ **Note**: This project is based on a second-round interview task. The data is fictional and used solely for educational and portfolio purposes. If requested, the repository will be removed.
+The Excel file contains three sheets:
+- **Store characteristics** (e.g. size, staff, facilities, demographics)
+- **Revenue and GM data**
+- **Cost data**
 
 ---
 
-## 🛠️ Tech Stack
+## 🧠 Methodology
 
-- Python
-  - `pandas`, `numpy`
-  - `matplotlib`
-  - `scikit-learn`
+### 1. Data Cleaning
+- Missing numerical values were filled with column means.
+- Missing categorical values were filled with `"N/A"`.
+- Negative or invalid values in features like area were corrected.
+- Duplicated rows were dropped.
+
+### 2. Profit Estimation
+- Gross Margin (GM) and Costs were aggregated yearly and per store.
+- Profit was calculated as `GM + Costs` (costs are negative in the dataset).
+- Stores were categorized into:
+  - Top 10 by profit
+  - Bottom 10 by profit
+
+### 3. Potential Estimation
+- A **linear regression model** was trained to predict theoretical profit based on store attributes.
+- Predicted profit vs. actual profit was compared → `Utilization = Actual / Predicted`
+- This utilization metric was used to identify:
+  - Stores that underperform vs. potential
+  - High-potential stores worth investment
+
+### 4. Statistical Analysis
+- **Correlation matrix** created for all numeric columns.
+- Features with correlation > 0.2 with profit were used in regression modeling.
+- For **categorical (non-numeric)** features, **ANOVA tests** were conducted to examine the relationship between each category and profit.
+
+### 5. Cross-Selling Opportunities
+- Pivot table of GM by product category and month was created.
+- Correlation matrix between product categories helped reveal potential cross-selling synergies.
+
+### 6. Profit-Mass Optimization Ideas
+- Price or bundle discounts in high-volume but low-GM categories
+- Seasonal campaign suggestions based on GM trends
+- Store benchmarking for sharing best practices
+- Targeted marketing in low-utilization stores
 
 ---
 
-## 💡 Potential Improvements
-
-- Incorporate external data (e.g., foot traffic, weather, holidays)
-- Add clustering for store segmentation
-- Deploy as a lightweight dashboard using `Streamlit` or `Dash`
+## 📈 Visualizations
+The project includes:
+- Seasonal GM trends by product category
+- Pie charts showing GM contribution per category per year
+- Scatterplots and correlation heatmaps for feature selection
 
 ---
 
-## 📬 Contact
+## 📂 File Structure
 
-Feel free to connect or reach out on [LinkedIn](https://www.linkedin.com/in/nagy-boldizsar0518) if you're interested in discussing the case or data-driven retail strategy.
+```
+├── IFUA_elemzes.ipynb       # Jupyter Notebook with full analysis
+├── Cseh hírlappiac adattábla.xlsx  # Provided Excel file
+├── IFUA_masodik_fordulo.pptx       # Final business presentation
+└── README.md                # This file
+```
+
+---
+
+## ✅ Key Results
+
+- Clear underperformance identified in ~10% of stores
+- Regression R² = ~0.82 using selected store features
+- Strong predictors of profit: store size, weekly opening hours, location
+- Product categories with cross-selling potential: [example if available]
+- Several store-specific and company-wide actions proposed
+
+---
+
+## 🔐 Disclaimer
+
+This repository was created based on a case study given during a job interview.  
+**All data is fictitious** and any resemblance to real entities is purely coincidental.
+
+---
